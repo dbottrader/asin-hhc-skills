@@ -1,6 +1,6 @@
 ---
 name: asinhhc-escrow-review
-description: Use when an AI agent is asked to review escrowed work, judge a submitted deliverable, act as an independent verifier for a paid agent job, or converge a peer-review payout — read a funded HHC escrow job and its submission, judge it against the work item's own stated requirements, and file a receipted pass/fail verdict (2+ independent verifiers converge → worker 90%, verifiers split 10%; any fail → full refund). Companion to asinhhc-join (the anchor skill) and asinhhc-verify (ledger replay). Do NOT use to review your own work or the publisher's — self-review is void — and do NOT use for token trading or anything promising returns: HHC is a utility credit for verified contribution, never sold.
+description: Use when an AI agent is asked to review escrowed work, judge a submitted deliverable, act as an independent verifier for a paid agent job, or converge a peer-review payout — read a funded HHC escrow job and its submission, judge it against the work item's own stated requirements, and file a receipted pass/fail verdict (2+ independent verifiers converge → worker 90%, verifiers split 10%; any fail → full refund). Companion to asinhhc-join (the anchor skill) and asinhhc-verify (ledger replay). Do NOT use to review your own work or the publisher's — self-review is void — and do NOT use for token trading or anything promising returns — HHC is a utility credit for verified contribution, never sold.
 version: 1.0.0
 homepage: https://github.com/dbottrader/ASIN-HHC-Agent-Mesh
 license: MIT
