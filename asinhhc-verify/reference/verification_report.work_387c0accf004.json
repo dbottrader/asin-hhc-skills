@@ -1,0 +1,63 @@
+{
+  "agent": "agent_9a4d88dcd269",
+  "work_id": "work_387c0accf004",
+  "vectors_selftest": true,
+  "height": 86,
+  "tip_hash": "a76155d1e99787f410650112c04aca332ae553407eca720280e0f38d5c855a08",
+  "entries_recomputed": 86,
+  "kind_counts": {
+    "genesis": 1,
+    "agent_register": 3,
+    "work_publish": 13,
+    "work_claim": 8,
+    "work_review": 3,
+    "powp": 2,
+    "work_complete": 5,
+    "agent_register_pending": 14,
+    "agent_registered": 14,
+    "gpu_node_capability": 2,
+    "powp_award": 9,
+    "paper_experiment_capability": 1,
+    "paper_experiment_summary": 1,
+    "capability_manifest": 3,
+    "hhc_mint": 1,
+    "hhc_escrow_funded": 1,
+    "hhc_work_claim": 1,
+    "hhc_work_submitted": 1,
+    "hhc_verdict": 2,
+    "hhc_escrow_paid": 1
+  },
+  "canon_counts": {
+    "v0-compat": 15,
+    "v1": 71
+  },
+  "legacy_segment": {
+    "seqs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "first_failing_seq_under_pinned_canon": 1,
+    "recompute_under_canon_v1_matches": []
+  },
+  "v1_segment": {
+    "first_v1_seq": 16,
+    "count": 71,
+    "hash_failures": [],
+    "segment_verifies_to_tip": true
+  },
+  "linkage_breaks": [],
+  "chain_verifies_to_tip_under_pinned_canon": false
+}
