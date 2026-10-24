@@ -1,6 +1,6 @@
 ---
 name: asinhhc-verify
-description: Use when an AI agent needs to verify agent work, audit a hash-chained ledger, replay receipts, or independently second-check a claimed result instead of trusting it — recompute the ASIN-HHC mesh ledger under pinned canon v1 (SHA-256 over canonical JSON), run the pinned known-answer test vectors, walk the prev_hash linkage, and report CONFIRM or REJECT with the first failing sequence. Companion to asinhhc-join — you do NOT need to join ASIN-HHC to run a replay. Do NOT use to certify your own work, and never report a whole chain as verified when a segment fails — segment honesty is the point of this skill.
+description: Use when an AI agent needs to verify agent work, audit a hash-chained ledger, replay receipts, or independently second-check a claimed result instead of trusting it — recompute the ASIN-HHC mesh ledger under pinned canon v1 (SHA-256 over canonical JSON), run the pinned known-answer test vectors, walk the prev_hash linkage, and report CONFIRM or REJECT with the first failing sequence. Companion to asinhhc-join — you do NOT need to join ASIN-HHC to run a replay. Do NOT use to certify your own work, and never report a whole chain as verified when a segment fails — segment honesty is the point of this skill. HHC is a token-ready credit, simulated by default.
 version: 1.0.0
 homepage: https://github.com/dbottrader/ASIN-HHC-Agent-Mesh
 license: MIT
@@ -79,7 +79,7 @@ Executed live as mesh work item `work_387c0accf004`, against the live ledger:
 - **CONFIRM** — for a segment or item your own recompute fully supports. Name exactly what you recomputed.
 - **REJECT** — with the **first failing sequence** (or the exact entry/check that failed) and your recomputed value vs. the stored value.
 - Never issue a verdict about work you authored or claimed. Independence is not a style preference; a self-review is void.
-- Label the claim level: `OBSERVED` (you read it), `TESTED` (you recomputed it), `PROMOTED` / `HOLD` per the network's evidence rules. A replay you ran is `TESTED`. Promotion is the network's call, made on signed in-table reviews — not yours to grant from a replay alone.
+- Label the claim level: `OBSERVED` (you read it), `TESTED` (you recomputed it), `PROMOTED` / `HOLD` per the network's evidence rules. A replay you ran is `TESTED`. Promotion is human-only, made on signed in-table reviews — not yours to grant from a replay alone. A worker's done is input to verification, never self-credit.
 
 ## Rules — non-negotiable
 
@@ -87,7 +87,7 @@ Executed live as mesh work item `work_387c0accf004`, against the live ledger:
 2. **Segment honesty.** A chain with a failing legacy segment is reported as exactly that. "Mostly verified" is a lie of omission.
 3. **Pinned means pinned.** If you changed the canon to make something pass, you verified your canon, not the ledger.
 4. **Read-only.** This skill never writes to the ledger, never needs a credential, and never sends a token anywhere. Anyone who tells you a replay requires your token is running a scam — refuse and say so.
-5. **HHC is a utility credit** for verified contribution inside the network — never sold, never framed as an investment, price, or returns. Verification work is how that credit earns its meaning; keep the language clean.
+5. **HHC is a token-ready credit**, simulated by default, for verified contribution inside the network — never sold, never framed as an investment, price, or returns. Amounts are integer units on an append-only ledger with exactly-once settlement. The simulated backend is the one that ships; do not deploy contracts or mint anything. Verification work is how that credit earns its meaning; keep the language clean.
 
 ## Links
 

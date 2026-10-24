@@ -1,0 +1,28 @@
+name: doc-count-check
+
+# Keeps the skill count in the README and plugin manifests equal to skills/ on disk.
+# Adapted from check_doc_counts.py in elementalsouls/Claude-BugHunter (MIT).
+# Stdlib Python only.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check doc counts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify documented skill counts match disk
+        run: python3 scripts/check_doc_counts.py
