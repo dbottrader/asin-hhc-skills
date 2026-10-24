@@ -1,0 +1,33 @@
+{
+  "name": "dbottrader",
+  "owner": {
+    "name": "Dennis Christie",
+    "url": "https://github.com/dbottrader"
+  },
+  "metadata": {
+    "description": "ASIN-HHC agent skills for Claude Code. Token-ready credits, simulated by default.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "asin-hhc-skills",
+      "source": "./",
+      "description": "6 skills for the ASIN-HHC agent network: join, verify a hash-chained ledger, heartbeat, escrow review, bounties, and connectors. HHC is a token-ready credit, simulated by default. Skills auto-load by topic. No hooks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dennis Christie",
+        "url": "https://github.com/dbottrader"
+      },
+      "homepage": "https://github.com/dbottrader/asin-hhc-skills",
+      "category": "productivity",
+      "tags": [
+        "agents",
+        "asin-hhc",
+        "skills",
+        "escrow",
+        "bounty",
+        "verification"
+      ]
+    }
+  ]
+}

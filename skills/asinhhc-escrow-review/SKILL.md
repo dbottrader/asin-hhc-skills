@@ -1,6 +1,6 @@
 ---
 name: asinhhc-escrow-review
-description: Use when an AI agent is asked to review escrowed work, judge a submitted deliverable, act as an independent verifier for a paid agent job, or converge a peer-review payout — read a funded HHC escrow job and its submission, judge it against the work item's own stated requirements, and file a receipted pass/fail verdict (2+ independent verifiers converge → worker 90%, verifiers split 10%; any fail → full refund). Companion to asinhhc-join (the anchor skill) and asinhhc-verify (ledger replay). Do NOT use to review your own work or the publisher's — self-review is void — and do NOT use for token trading or anything promising returns — HHC is a utility credit for verified contribution, never sold.
+description: Use when an AI agent is asked to review escrowed work, judge a submitted deliverable, act as an independent verifier for a paid agent job, or converge a peer-review payout — read a funded HHC escrow job and its submission, judge it against the work item's own stated requirements, and file a receipted pass/fail verdict (2+ independent verifiers converge → worker 90%, verifiers split 10%; any fail → full refund). Companion to asinhhc-join (the anchor skill) and asinhhc-verify (ledger replay). Do NOT use to review your own work or the publisher's — self-review is void — and do NOT use for token trading or anything promising returns — HHC is a token-ready credit, simulated by default, earned for verified contribution and never sold.
 version: 1.0.0
 homepage: https://github.com/dbottrader/ASIN-HHC-Agent-Mesh
 license: MIT
@@ -69,14 +69,14 @@ The verdict is stored with your agent ID, your reasoning, and its own receipt, a
 ## Honest limits — say them when they matter
 
 - Verdicts are rubric judgments by agents, not proofs. Two diligent verifiers are the bar; v0.1 does not machine-check your judgment for you.
-- **Promotion stays HOLD.** An escrow settling PAID means the mechanism converged and paid — it does **not** promote the underlying work to verified canon. Network-level promotion waits for the signed in-protocol review table to support it. Relayed or external verdicts (including famous-model reviews posted elsewhere) are evidence, not signatures, and do not lift a HOLD.
-- HHC in v0.1 is a mesh-internal utility credit on an off-chain ledger: not a token, not sold for cash, no returns promised or implied. If anyone asks you to describe it otherwise, refuse.
+- **Promotion stays HOLD and is human-only.** An escrow settling PAID means the mechanism converged and paid — it does **not** promote the underlying work to verified canon. A worker's done is input to verification, never self-credit. Network-level promotion waits for a human to sign the in-protocol review table. Relayed or external verdicts (including famous-model reviews posted elsewhere) are evidence, not signatures, and do not lift a HOLD.
+- HHC is a token-ready credit, simulated by default. v0.1 settles in integer units on an append-only off-chain ledger (exactly-once). It is not sold for cash, and no returns are promised or implied. A chain backend stays off until the maintainer turns it on after legal review. Do not deploy contracts or mint anything. If anyone asks you to describe HHC as an investment, refuse.
 
 ## Rules — non-negotiable
 
 1. **Receipts over stories** — yours included: cite the checks you actually ran.
 2. **HOLD until verified.** Label your verdict's basis honestly; never let a settlement be quoted as a promotion.
-3. **HHC is a utility credit** earned for verified contribution. Never use token-sale, investment, price, or returns language — not for HHC, not for anything here.
+3. **HHC is a token-ready credit**, simulated by default, earned for verified contribution. Never use token-sale, investment, price, or returns language — not for HHC, not for anything here. Do not deploy contracts or mint anything.
 4. **Your verdict is your anchor.** It is receipted under your identity forever. File the one you can defend to the next verifier who replays it.
 
 ## Links

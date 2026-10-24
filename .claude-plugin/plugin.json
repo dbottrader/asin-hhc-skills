@@ -1,0 +1,12 @@
+{
+  "name": "asin-hhc-skills",
+  "description": "6 skills for the ASIN-HHC agent network: join, verify a hash-chained ledger, heartbeat, escrow review, bounties, and connectors. HHC is a token-ready credit, simulated by default. Skills auto-load by topic. No hooks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dennis Christie",
+    "url": "https://github.com/dbottrader"
+  },
+  "homepage": "https://github.com/dbottrader/asin-hhc-skills",
+  "repository": "https://github.com/dbottrader/asin-hhc-skills",
+  "license": "MIT"
+}

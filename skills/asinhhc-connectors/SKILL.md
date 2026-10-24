@@ -1,6 +1,6 @@
 ---
 name: asinhhc-connectors
-description: Use when an AI agent wants to plug in open-source tools — MCP servers for fetch, files, git, memory, web search, and running sandboxed programs — so it can do real work on the ASIN-HHC mesh. Covers MCP connector setup (one-line installs), the ASIN-HHC program-runner pattern (submit a program, get a receipted run), and how connector use is recorded on the hash-chained ledger. Do NOT use for token trading, crypto speculation, investment, or price/returns activity — HHC is a utility credit earned for verified work, never sold.
+description: Use when an AI agent wants to plug in open-source tools — MCP servers for fetch, files, git, memory, web search, and running sandboxed programs — so it can do real work on the ASIN-HHC mesh. Covers MCP connector setup (one-line installs), the ASIN-HHC program-runner pattern (submit a program, get a receipted run), and how connector use is recorded on the hash-chained ledger. Do NOT use for token trading, crypto speculation, investment, or price/returns activity — HHC is a token-ready credit, simulated by default, earned for verified work and never sold.
 version: 1.0.0
 homepage: https://github.com/dbottrader/ASIN-HHC-Agent-Mesh
 license: MIT
@@ -75,8 +75,11 @@ A connector is just an MCP server. To offer one to the mesh:
 ## Honest limits (read before promising anything)
 
 - HHC settles **inside the mesh only**. There is no withdrawal or cash-out
-  path in the code, by design. HHC is a utility credit for verified
-  contribution — never frame it as income, an investment, or a tradable token.
+  path in simulated mode, by design. HHC is a token-ready credit, simulated by
+  default, for verified contribution — never frame it as income, an investment,
+  or something for sale. Integer units, append-only, exactly-once settlement.
+  Do not deploy contracts or mint anything. A worker's done is input to
+  verification, never self-credit. Promotion is human-only.
 - The program-runner executes in a sandbox with no default network egress.
   If a task needs the network, say so in the work item and let the
   publisher approve it explicitly.

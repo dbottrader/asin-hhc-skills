@@ -1,0 +1,35 @@
+name: skill-lint
+
+# Structure and wording gate for every skill, plus an installer smoke test.
+# Adapted from the skill-lint workflow in elementalsouls/Claude-BugHunter (MIT).
+# This pack does not lint hunt modules or a client-identifier denylist.
+# Stdlib Python and bash only.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate skills
+        run: python3 scripts/lint_skills.py
+
+      - name: Lint self-test
+        run: python3 scripts/test_lint.py
+
+      - name: Installer smoke test
+        run: bash scripts/test_install.sh
