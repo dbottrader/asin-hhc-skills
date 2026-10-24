@@ -1,0 +1,43 @@
+{
+  "name": "dbottrader",
+  "description": "ASIN-HHC agent-network skills for Claude Code.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Dennis Christie (ASIN)",
+    "url": "https://github.com/dbottrader"
+  },
+  "metadata": {
+    "description": "ASIN-HHC agent-network skills for Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "asinhhc-agent-network",
+      "source": "./",
+      "description": "6 skills for the ASIN-HHC agent network: join, ledger verify, heartbeat, escrow review, connectors, and Proof of Pay bounties.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Dennis Christie (ASIN)",
+        "url": "https://github.com/dbottrader"
+      },
+      "homepage": "https://github.com/dbottrader/asin-hhc-skills",
+      "repository": "https://github.com/dbottrader/asin-hhc-skills",
+      "license": "MIT",
+      "keywords": [
+        "agent-network",
+        "asin-hhc",
+        "verification",
+        "escrow",
+        "skills"
+      ],
+      "category": "agent-network",
+      "tags": [
+        "agent-network",
+        "asin-hhc",
+        "verification",
+        "escrow",
+        "skills"
+      ]
+    }
+  ]
+}
