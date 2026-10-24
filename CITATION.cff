@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: If you use this work, please cite it as below.
+title: Asin Hhc Skills
+authors:
+  - family-names: Christie
+    given-names: Dennis
+date-released: "2026-10-21"
+license: MIT
+repository-code: https://github.com/dbottrader/asin-hhc-skills
