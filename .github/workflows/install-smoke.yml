@@ -1,0 +1,72 @@
+name: install-smoke
+
+# Runs the manifest installer so a broken path fails CI.
+# Adapted from elementalsouls/Claude-BugHunter .github/workflows/install-smoke.yml (MIT).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: shellcheck + install/uninstall
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: shellcheck
+        run: shellcheck -S warning scripts/install.sh
+
+      - name: bash -n
+        run: bash -n scripts/install.sh
+
+      - name: install --no-shell, reinstall, uninstall
+        run: |
+          set -euo pipefail
+          expected=$(find skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          T="$(mktemp -d)"
+
+          bash scripts/install.sh --help >/dev/null
+          if bash scripts/install.sh --bogus >/dev/null 2>&1; then
+            echo "FAIL: unknown flag should exit non-zero"
+            exit 1
+          fi
+
+          HOME="$T" bash scripts/install.sh --no-shell
+          n=$(find "$T/.claude/skills" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          echo "installed skills: $n (expected $expected)"
+          [ "$n" = "$expected" ]
+          [ -f "$T/.claude/skills/asinhhc-join/SKILL.md" ]
+          [ -f "$T/.claude/.skill-manifests/asinhhc-agent-network.txt" ]
+          [ ! -e "$T/.bashrc" ]
+          [ ! -e "$T/.zshrc" ]
+          # A second install of identical skills stays idempotent.
+          HOME="$T" bash scripts/install.sh --no-shell
+          n2=$(find "$T/.claude/skills" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          [ "$n2" = "$expected" ]
+
+          # A dirty installed skill is backed up outside the loading path.
+          echo dirty >> "$T/.claude/skills/asinhhc-join/SKILL.md"
+          HOME="$T" bash scripts/install.sh --no-shell
+          cmp skills/asinhhc-join/SKILL.md "$T/.claude/skills/asinhhc-join/SKILL.md"
+          find "$T/.claude/install-backups" -type d -name asinhhc-join | grep -q .
+          [ ! -d "$T/.claude/skills/asinhhc-join/asinhhc-join" ]
+
+          # Another bundle's manifest keeps the skill it still owns.
+          echo "skills/asinhhc-join" > "$T/.claude/.skill-manifests/other-bundle.txt"
+          HOME="$T" bash scripts/install.sh --uninstall
+          [ -d "$T/.claude/skills/asinhhc-join" ]
+          [ ! -d "$T/.claude/skills/asinhhc-verify" ]
+          [ ! -f "$T/.claude/.skill-manifests/asinhhc-agent-network.txt" ]
+          [ -f "$T/.claude/.skill-manifests/other-bundle.txt" ]
+
+          rm -rf "$T"
+          echo "install smoke passed"

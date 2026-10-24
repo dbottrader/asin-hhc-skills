@@ -1,0 +1,2 @@
+# Keep installer scripts LF so bash does not abort on CRLF compound statements.
+*.sh text eol=lf
